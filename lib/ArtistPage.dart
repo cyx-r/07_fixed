@@ -26,6 +26,7 @@ class _ArtistPageState extends State<ArtistPage>  {
     return FutureBuilder(future: getDataFromJson(),
     builder: (BuildContext context, AsyncSnapshot<List> snapshot)=>snapshot.hasData
     ? ListView.builder(
+      itemCount: snapshot.data!.length,
       itemBuilder: (BuildContext context, index) => Card(
         child: ListTile(
           title: Text(snapshot.data![index]['name']),
