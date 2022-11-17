@@ -25,7 +25,7 @@ class _ArtistPageState extends State<ArtistPage>  {
   Widget build(BuildContext context) {
     return FutureBuilder(future: getDataFromJson(),
     builder: (BuildContext context, AsyncSnapshot<List> snapshot)=>snapshot.hasData
-    ? ListView.builder(
+    ? Scaffold(body: ListView.builder(
       itemCount: snapshot.data!.length,
       itemBuilder: (BuildContext context, index) => Card(
         child: ListTile(
@@ -38,6 +38,7 @@ class _ArtistPageState extends State<ArtistPage>  {
           },
         ),
       ),
+    ), appBar: AppBar(),
     ): const Center(child: Text("Ups"),)); //Подсмотрел такой приём в интернете, думаю <?> и <:> можно использовать в этом случае
   }
   
